@@ -1,8 +1,11 @@
 package com.cognizant.service;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import com.cognizant.entity.Patient;
 import com.cognizant.exception.ResourceNotFoundException;
@@ -19,31 +22,24 @@ public class PatientService implements PatientServiceIntf {
 	}
 
 	@Override
-	public Patient searchPatientByName(String patient_Name) {
+	public Patient searchPatientByName(String patient_Email) {
 
-		Patient response = patientRepository.getPatientDetails(patient_Name);
+		Patient response = patientRepository.getPatientDetails(patient_Email);
 		return response;
 	}
 
 	@Override
-	public Patient updatePatient(String patient_Name) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Patient updatePatient(Patient patient, String patient_Name) {
-		Patient existingPatient = patientRepository.getPatientDetails(patient_Name);
+	public Patient updatePatient(Patient patient, String patient_email) {
+		Patient existingPatient = patientRepository.getPatientDetails(patient_email);
 		 
-		 existingPatient.setPatient_Email(patient.getPatient_Name());
-		 existingPatient.setPatient_Address(patient.getPatient_Address());
-		 existingPatient.setPatient_ContactNumber(patient.getPatient_ContactNumber());
-		 existingPatient.setPatient_Name(patient.getPatient_Name());
+		 
+		 existingPatient.setPatient_address(patient.getPatient_address()); 
+		 existingPatient.setPatient_contactnumber(patient.getPatient_contactnumber());
+		 existingPatient.setPatient_name(patient.getPatient_name());
 		 existingPatient.setDob(patient.getDob());
 		 patientRepository.save(existingPatient);
 		 return existingPatient;
 	}
-
 	 
 
 }

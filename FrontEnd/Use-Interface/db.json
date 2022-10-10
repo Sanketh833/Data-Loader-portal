@@ -1,0 +1,34 @@
+{
+  "books": [
+    {
+      "title": "Theory Of relativity",
+      "category": "science",
+      "image": "dfgh",
+      "price": 1000,
+      "publisher": "AbPublications",
+      "active": true,
+      "content": "Theory Of relativity",
+      "id": 1
+    },
+    {
+      "title": "Music theory",
+      "category": "",
+      "image": "",
+      "price": 0,
+      "publisher": "",
+      "active": true,
+      "content": "",
+      "id": 2
+    },
+    {
+      "title": "Adventures of sherlock Holmes",
+      "category": "Mystery",
+      "image": "url",
+      "price": "2089",
+      "publisher": "Doyle",
+      "active": true,
+      "content": "Adventures of sherlock Holmes",
+      "id": 3
+    }
+  ]
+}

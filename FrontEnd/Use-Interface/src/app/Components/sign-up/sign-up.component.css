@@ -1,0 +1,10 @@
+/* .gradient-custom-3 {
+    background: linear-gradient(to right, rgba(180, 158, 149, 0.5), rgba(139, 119, 110, 0.5))
+    } */
+.image{
+    height: auto;
+    width: auto;
+    max-height: 1000px;
+    max-width: 2000px;
+
+}

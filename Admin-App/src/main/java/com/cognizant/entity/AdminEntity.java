@@ -23,6 +23,7 @@ public class AdminEntity {
 	@NotBlank(message = "username cannot be blank" )
 	@Email(message = "user name should be a valid email")
 	private String username;
+	@NotBlank(message = "password cannot be blank" )
 	private String password;
 	 
 	

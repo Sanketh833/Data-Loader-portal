@@ -1,0 +1,66 @@
+<!-- <div class="global-container">
+    <div class="card login-form">
+    <div class="col-md-8 offset-md-2">
+        <div class="card-body">
+         
+            <div class="card-text">
+
+<form name="myForm"> -->
+
+<div class="input-group">
+    <span class="input-group-text"></span>
+    <input type="text" placeholder="Enter patient username" [(ngModel)]=patient.patient_email aria-label="First name"
+        class="form-control">
+
+
+    <button class="btn btn-primary" (click)="getByPatientName(patient.patient_email)">Submit</button>
+</div>
+
+<h2>Patient Data</h2>
+
+
+
+
+
+<div class="row gy-2 my-2">
+    <div class="col-sm-2" *ngFor="let patient of patients">
+        <div class="card">
+            
+            
+            <div class="card-bodys">
+                <p class="card-text">
+                    <label> Patient Name: </label>
+                    {{patient.patient_name}}
+                </p>
+                 
+                <p class="card-texts">
+                    <label> Patient Address: </label>
+                    {{patient.patient_address}}
+                </p>
+                <p class="card-text">
+                    <label> DOB: </label>
+                    {{patient.dob}}
+                </p>
+                <p class="card-text">
+                    <label> Patient Email: </label>
+                    {{patient.patient_email}}
+                </p>
+                <p class="card-text">
+                    <label> Patient Contact Number: </label>
+                    {{patient.patient_contactnumber}}
+                </p>
+                <p class="card-text">
+                    <label> Drug Id: </label>
+                    {{patient.drug_id}}
+                </p>
+                <p class="card-text">
+                    <label> Drug Name: </label>
+                    {{patient.drug_name}}
+                </p>
+               
+                <button class="btn btn-warning"  type="submit" (click)="editBook(patient.patient_id)">Edit</button>
+                 
+            </div>
+        </div>
+    </div>
+ 

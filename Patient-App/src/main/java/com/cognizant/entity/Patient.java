@@ -18,43 +18,58 @@ import org.springframework.format.annotation.NumberFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.ToString; 
+import lombok.ToString;
 
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
 @ToString
 @Entity
 public class Patient {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer patientId;
-	
-	@NotBlank(message = "patient_Name cannot be empty")
-	@Size(min = 5,max = 30)
-	private String patient_Name;
-	
-	@NotBlank(message = "patient_Address need to be filled")
-	private String patient_Address;
-	
+	private Long patient_id;
+
+//	@NotBlank(message = "patient_Name cannot be empty")
+//	@Size(min = 5,max = 30)
+	private String patient_name;
+
+//	@NotBlank(message = "patient_Address need to be filled")
+	private String patient_address;
+
 //	@NotBlank(message = "DOB cannot be null")
-//	@DateTimeFormat(pattern = "YYYY-MM-DD")
-	private Date dob;
-	
+//	@DateTimeFormat(pattern = "MM-DD-YYYY")
+	private String dob;
+
 //	@NotNull(message = "patient_Email cannot be empty")
 //	@Email( message =  "Enter valid patient_Email")
-	private String patient_Email;
-	
+	private String patient_email;
+
 //	@NotBlank(message = "patient_ContactNumber cannot be empty")
 //	@Size(min = 10, max = 10)
-	private Integer patient_ContactNumber;
-	
-	@NotBlank(message = "drug_Id cannot be empty" )
-	@NumberFormat(pattern = "XXXXX-XXXX-XX")
-	private String drug_Id;
-	
-	@NotBlank(message = "drug_Name cannot be empty" )
-	private String drug_Name;
-	
+	private Long patient_contactnumber;
+
+//	@NotBlank(message = "drug_Id cannot be empty" )
+//	@NumberFormat(pattern = "XXXXX-XXXX-XX")
+	private Integer drug_id;
+
+//	@NotBlank(message = "drug_Name cannot be empty" )
+	private String drug_name;
+
+	public Patient() {
+		super();
+	}
+
+	public Patient(Long patient_id, String patient_name, String patient_address, String dob, String patient_email,
+			Long patient_contactnumber, Integer drug_id, String drug_name) {
+		super();
+		this.patient_id = patient_id;
+		this.patient_name = patient_name;
+		this.patient_address = patient_address;
+		this.dob = dob;
+		this.patient_email = patient_email;
+		this.patient_contactnumber = patient_contactnumber;
+		this.drug_id = drug_id;
+		this.drug_name = drug_name;
+	}
+
 }

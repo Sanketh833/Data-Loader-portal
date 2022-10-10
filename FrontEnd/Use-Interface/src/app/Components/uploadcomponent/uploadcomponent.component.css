@@ -1,0 +1,45 @@
+/* @import "~bootstrap/dist/css/bootstrap.css";
+
+.body{
+   
+    background-image: url('https://image.shutterstock.com/image-vector/medical-concept-hospital-building-doctor-260nw-588196298.jpg');
+    background-size: contain;
+    background-position: center;
+    background-repeat: repeat;
+    overflow:hidden ;
+    height:100vh;
+   width: 100vw;
+}
+
+.global-container{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(228, 236, 236);
+}
+
+.font-color{
+color: orangered;
+}
+.form-class{
+    padding-top: 20px;
+    font-size: 20px;
+    margin-top: 10px;
+    line-height: 50px;
+}
+.login-form{
+    width: 600px;
+    padding-bottom: 50px;
+    height: 300px;
+    margin: 20px;
+    background-color: rgb(5, 38, 59);
+    border-radius: 10px !important;
+} */
+
+.card-bodys{
+   
+
+    background: linear-gradient(to right, #6dd5ed, #2193b0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
+    }
