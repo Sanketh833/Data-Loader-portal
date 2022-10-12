@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import Patient from 'Entity/Patient';
 import { BookService } from 'src/app/book.service';
 
@@ -12,13 +13,16 @@ export class UpdatePatientComponent implements OnInit {
   patient:Patient=new Patient();
   patients:Patient[]=[];
 
-  constructor(public bookService:BookService) { }
+  constructor(public bookService:BookService,
+    private route:ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.patient = new Patient();
+    this.patient_email=this.route.snapshot.params['patient_email'];
   }
 
-  updatemethod(patient_email:string){
-    const observable= this.bookService.updatePatient(patient_email, this.patient);
+  updatemethod(){
+    const observable= this.bookService.updatePatient(this.patient_email, this.patient);
     observable.subscribe(
       (response:any)=>{
         console.log(response);

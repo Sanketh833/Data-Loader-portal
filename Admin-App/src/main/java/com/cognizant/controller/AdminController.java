@@ -93,10 +93,11 @@ public class AdminController {
 //		return adminDTO;
 //	}
 
-	@PutMapping("/edit/{patient_Email}")
-	public void editPatientDetails(@RequestBody Patient patient, @PathVariable("patient_Email") String patient_Email) {
+	@PutMapping("/edit/{patient_email}")
+	public void editPatientDetails(@RequestBody Patient patient, 
+			@PathVariable("patient_email") String patient_email) {
 		String url = "http://localhost:8090/load/update/";
-		this.restTemplate.put(url + patient_Email, patient, Patient.class);
+		this.restTemplate.put(url + patient_email, patient, Patient.class);
 
 	}
 

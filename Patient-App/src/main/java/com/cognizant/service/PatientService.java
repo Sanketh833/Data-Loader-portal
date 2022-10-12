@@ -17,13 +17,7 @@ public class PatientService implements PatientServiceIntf {
 	PatientRepository patientRepository;
 
 	@Override
-	public Patient createpatientdetails(Patient patient) {
-		return patientRepository.save(patient);
-	}
-
-	@Override
 	public Patient searchPatientByName(String patient_Email) {
-
 		Patient response = patientRepository.getPatientDetails(patient_Email);
 		return response;
 	}
@@ -31,15 +25,13 @@ public class PatientService implements PatientServiceIntf {
 	@Override
 	public Patient updatePatient(Patient patient, String patient_email) {
 		Patient existingPatient = patientRepository.getPatientDetails(patient_email);
-		 
-		 
-		 existingPatient.setPatient_address(patient.getPatient_address()); 
-		 existingPatient.setPatient_contactnumber(patient.getPatient_contactnumber());
-		 existingPatient.setPatient_name(patient.getPatient_name());
-		 existingPatient.setDob(patient.getDob());
-		 patientRepository.save(existingPatient);
-		 return existingPatient;
+
+		existingPatient.setPatient_address(patient.getPatient_address());
+		existingPatient.setPatient_contactnumber(patient.getPatient_contactnumber());
+		existingPatient.setPatient_name(patient.getPatient_name());
+		existingPatient.setDob(patient.getDob());
+		patientRepository.save(existingPatient);
+		return existingPatient;
 	}
-	 
 
 }

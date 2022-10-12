@@ -34,12 +34,16 @@ export class UploadcomponentComponent implements OnInit {
     this.uploadcomponentservice.upload(this.file).subscribe(
       (event: any) => {
         if (typeof (event) === 'object') {
-          alert("uploaded")
+          alert("Status Inducted")
           // Short link via api response
           this.shortLink = event.link;
-
           this.loading = false; // Flag variable 
         }
+        
+      },
+      function(error:any){
+        console.log(error);
+      alert(" Validation Error,Could not upload the file:file.csv")
       }
     );
   }

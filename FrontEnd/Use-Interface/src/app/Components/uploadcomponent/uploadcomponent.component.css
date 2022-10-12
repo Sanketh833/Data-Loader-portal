@@ -1,4 +1,4 @@
-/* @import "~bootstrap/dist/css/bootstrap.css";
+@import "~bootstrap/dist/css/bootstrap.css";
 
 .body{
    
@@ -35,7 +35,7 @@ color: orangered;
     margin: 20px;
     background-color: rgb(5, 38, 59);
     border-radius: 10px !important;
-} */
+}
 
 .card-bodys{
    

@@ -1,44 +1,30 @@
 <div class="text-center">
-    <input class="form-control" type="file" 
-            (change)="onChange($event)">
-  
-    <button  (click)="onUpload()" 
-        class="btn btn-success">
-        Upload
-    </button>
+    <input class="form-control" type="file" (change)="onChange($event)">
+
+    <button (click)="onUpload()" style="float: right;" class="btn btn-success">Upload </button>
 </div>
-  
-<!-- Shareable short link of  uploaded file -->
-<!-- <div class="container text-center jumbotron"
-    *ngIf="shortLink">
-    <h2> Visit Here</h2>
-    <a href="{{shortLink}}">{{shortLink}}</a>
-</div> -->
-  
-<!--Flag variable is used here-->
-<!-- <div class="container" *ngIf="loading">
-    <h3>Loading ...</h3>
-</div> -->
+<br>
+<br>
+<br>
 
 
+<!-- Card Details -->
+<div class="input-group">
+    <span class="input-group-text"></span>
+    <input type="text" placeholder="Enter patient username" [(ngModel)]=patient.patient_email aria-label="First name"
+        class="form-control">
 
 
-    <div class="input-group">
-        <span class="input-group-text"></span>
-        <input type="text" placeholder="Enter patient username" [(ngModel)]=patient.patient_email aria-label="First name"
-            class="form-control">
-    
-    
-        <button class="btn btn-primary" (click)="getByPatientName(patient.patient_email)">Submit</button>
-    </div>
-    
+    <button class="btn btn-primary" (click)="getByPatientName(patient.patient_email)">Submit</button>
+</div>
+
 <h2>Patient Details</h2>
 
-<div class="row gy-2 my-2" >
-    <div class="col-sm-2"  >
-        <div class="card"> 
-            
-            <div class="card-bodys" >
+<div class="row gy-2 my-2">
+    <div class="col-sm-2">
+        <div class="card">
+
+            <div class="card-bodys">
                 <p class="card-text">
                     <label> Patient Email: </label>
                     {{patient.patient_email}}
@@ -72,5 +58,4 @@
                     <label> Drug Name: </label>
                     {{patient.drug_name}}
                 </p>
-                <button class="btn btn-warning"  type="submit" (click)="editBook(patient.patient_email)">Update</button>
-            
+                <button class="btn btn-warning" type="submit" (click)="editBook(patient.patient_email)">Update</button>

@@ -30,24 +30,16 @@ public class PatientController {
 
 	@Autowired
 	PatientServiceIntf patientServiceIntf;
-	
-	 @Autowired
-	 CSVService csvservice;
 
-	@PostMapping("/patientdata")
-	public Patient createpatientdetails( @RequestBody Patient patient) {
-		return patientServiceIntf.createpatientdetails(patient);
-	}
+	@Autowired
+	CSVService csvservice;
 
 	@PostMapping("/upload")
 	public ResponseEntity<message> uploadFile(@RequestParam(value = "file") MultipartFile file) {
 		String message = "";
-		System.out.println("befor if");
 		if (CSVFileUpload.hasCSVFormat(file)) {
 			try {
-				System.out.println("befor file");
 				csvservice.save(file);
-				System.out.println("after file");
 				message = "Uploaded the file successfully: " + file.getOriginalFilename();
 				return ResponseEntity.status(HttpStatus.OK).body(new message(message));
 			} catch (Exception e) {
@@ -60,17 +52,17 @@ public class PatientController {
 		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new message(message));
 	}
 
-	@GetMapping("/retrieve/{patient_Email}")
-	public Patient searchPatientByName(@PathVariable String patient_Email) {
-		Patient patientresponse = patientServiceIntf.searchPatientByName(patient_Email);
+	@GetMapping("/retrieve/{patient_email}")
+	public Patient searchPatientByName(@PathVariable String patient_email) {
+		Patient patientresponse = patientServiceIntf.searchPatientByName(patient_email);
 		return patientresponse;
 	}
 
-	@PutMapping("/update/{patient_Email}")
-	public ResponseEntity<Patient> updatePatientDetails(@PathVariable("patient_Email") String patient_Email,
+	@PutMapping("/update/{patient_email}")
+	public ResponseEntity<Patient> updatePatientDetails(@PathVariable("patient_email") String patient_email,
 			@RequestBody Patient patient) {
 
-		return new ResponseEntity<Patient>(patientServiceIntf.updatePatient(patient, patient_Email), HttpStatus.OK);
+		return new ResponseEntity<Patient>(patientServiceIntf.updatePatient(patient, patient_email), HttpStatus.OK);
 
 	}
 
