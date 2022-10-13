@@ -70,7 +70,7 @@ public class AdminController {
 	@GetMapping("/get/{patient_Email}")
 	public Patient collectPatientDetails(@PathVariable("patient_Email") String patient_Email) {
 
-		String url = "http://localhost:8090/load/retrieve/ ";
+		String url = "http://localhost:8086/load/retrieve/ ";
 
 		Patient patient = this.restTemplate.getForObject(url + patient_Email, Patient.class);
 
@@ -96,7 +96,7 @@ public class AdminController {
 	@PutMapping("/edit/{patient_email}")
 	public void editPatientDetails(@RequestBody Patient patient, 
 			@PathVariable("patient_email") String patient_email) {
-		String url = "http://localhost:8090/load/update/";
+		String url = "http://localhost:8086/load/update/";
 		this.restTemplate.put(url + patient_email, patient, Patient.class);
 
 	}

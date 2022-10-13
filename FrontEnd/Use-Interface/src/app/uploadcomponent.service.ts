@@ -7,7 +7,7 @@ import {Observable} from 'rxjs';
 export class uploadcomponentService {
     
   // API url
-  baseApiUrl = "http://localhost:8090/load/upload"
+  baseApiUrl = "http://54.249.155.248:8086/load/upload"
     
   constructor(private http:HttpClient) { }
   

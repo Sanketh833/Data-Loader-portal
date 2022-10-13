@@ -30,7 +30,9 @@ public class PatientService implements PatientServiceIntf {
 		existingPatient.setPatient_contactnumber(patient.getPatient_contactnumber());
 		existingPatient.setPatient_name(patient.getPatient_name());
 		existingPatient.setDob(patient.getDob());
+		existingPatient.setStatus("Approved");
 		patientRepository.save(existingPatient);
+		
 		return existingPatient;
 	}
 

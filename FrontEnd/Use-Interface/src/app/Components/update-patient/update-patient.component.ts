@@ -26,7 +26,7 @@ export class UpdatePatientComponent implements OnInit {
     observable.subscribe(
       (response:any)=>{
         console.log(response);
-        alert("Updated Succesfully")
+        alert("Updated Succesfully, Status Approved")
       },
       function(error){
         console.log(error);

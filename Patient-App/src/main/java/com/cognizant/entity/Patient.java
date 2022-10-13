@@ -3,6 +3,7 @@ package com.cognizant.entity;
 import java.sql.Date;
 import java.time.LocalDate;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -57,6 +58,9 @@ public class Patient {
 
 	@NotNull(message = "drug_Name cannot be empty" )
 	private String drug_name;
+	
+	@Column
+	private String status ="Pending";
 
 	public Patient() {
 		super();

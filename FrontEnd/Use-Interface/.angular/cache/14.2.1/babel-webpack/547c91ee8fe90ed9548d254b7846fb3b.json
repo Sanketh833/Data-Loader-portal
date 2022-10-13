@@ -1,0 +1,1 @@
+{"ast":null,"code":"export default class Patient {\n  constructor() {\n    this.patient_name = \"\";\n    this.patient_address = \"\";\n    this.dob = \"\";\n    this.patient_email = \"\";\n    this.drug_name = \"\";\n  }\n\n}","map":null,"metadata":{},"sourceType":"module"}
