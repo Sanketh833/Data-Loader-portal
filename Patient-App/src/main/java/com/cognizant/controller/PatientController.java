@@ -35,7 +35,7 @@ public class PatientController {
 	CSVService csvservice;
 
 	@PostMapping("/upload")
-	public ResponseEntity<message> uploadFile(@RequestParam(value = "file") MultipartFile file) {
+	public ResponseEntity<message> uploadFile( @RequestParam(value = "file") MultipartFile file) {
 		String message = "";
 		if (CSVFileUpload.hasCSVFormat(file)) {
 			try {

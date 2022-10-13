@@ -28,34 +28,42 @@ public class CSVFileUpload {
 		return true;
 	}
 
-	public static List<Patient> csvToPatient(InputStream is) {
-		System.out.println("at csvhelper");
+	public static List<Patient> csvToPatient(InputStream is) { 
 		try (BufferedReader fileReader = new BufferedReader(new InputStreamReader(is, "UTF-8"));
 				CSVParser csvParser = new CSVParser(fileReader,
 						CSVFormat.DEFAULT.withFirstRecordAsHeader().withIgnoreHeaderCase().withTrim());) {
 
-			List<Patient> patientlist = new ArrayList<Patient>();
-			System.out.println("sdf");
+			List<Patient> patientlist = new ArrayList<Patient>(); 
 
-			Iterable<CSVRecord> csvRecords = csvParser.getRecords();
-			System.out.println("dfgh");
-			for (CSVRecord csvRecord : csvRecords) {
-				System.out.println("hjiuy");
+			Iterable<CSVRecord> csvRecords = csvParser.getRecords(); 
+			for (CSVRecord csvRecord : csvRecords) { 
+				if (csvRecord.get("patient_email").isBlank() || (csvRecord.get("patient_email").isEmpty())) {
+
+					throw new NullPointerException("patient_email is null");
+				}
+				if (csvRecord.get("patient_name").isBlank() || (csvRecord.get("patient_name").isEmpty())) {
+
+					throw new NullPointerException("patient_name is null");
+				}
+				if (csvRecord.get("patient_address").isBlank() || (csvRecord.get("patient_address").isEmpty())) {
+
+					throw new NullPointerException("patient_address is null");
+				}
+				if (csvRecord.get("dob").isBlank() || (csvRecord.get("dob").isEmpty())) {
+
+					throw new NullPointerException("dob is null");
+				}
+				if (csvRecord.get ("drug_name").isBlank() || (csvRecord.get("drug_name").isEmpty())) {
+
+					throw new NullPointerException("drug_name is null");
+				} 
+				
 				Patient patient = new Patient(Long.parseLong(csvRecord.get("patient_id")),
-						csvRecord.get("patient_name"),
-						csvRecord.get("patient_address"), 
-						csvRecord.get("dob"), 
-						csvRecord.get("patient_email"),
-						Long.parseLong(csvRecord.get("patient_contactnumber")),
-						Integer.parseInt(csvRecord.get("drug_id")), 
-						csvRecord.get("drug_name"));
-//				 System.out.println(patient.getPatient_id());
-				// System.out.println(patient.getPatientName());
-				// System.out.println(patient.getPatientAddress());
-				// System.out.println(patient.getPatientdob());
-				// System.out.println(patient.getEmailId());
-
-				// list.forEach(System.out::println);
+						csvRecord.get("patient_name"), csvRecord.get("patient_address"), csvRecord.get("dob"),
+						csvRecord.get("patient_email"), Long.parseLong(csvRecord.get("patient_contactnumber")),
+						Integer.parseInt(csvRecord.get("drug_id")), csvRecord.get("drug_name"));
+				System.out.println(patient.getPatient_id());
+				 
 				patientlist.add(patient);
 
 			}

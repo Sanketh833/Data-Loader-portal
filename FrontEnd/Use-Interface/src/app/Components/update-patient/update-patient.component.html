@@ -20,8 +20,10 @@
 <br>
 <div class="input-group">
     <span class="input-group-text">Dob</span>
-    <input required type="dob" id="typeDobX" name="dob" #dob="ngModel"  type="text"  placeholder="eg: Mention your DOB in YYYY-MM-DD" [(ngModel)]=patient.dob  aria-label="First name"
-        class="form-control">
+   
+<input type="date" id="typeDobX" name="dob" #dob="ngModel" [(ngModel)]=patient.dob  aria-label="First name"  >
+    <!-- <input  type="date"  type="text"  placeholder="eg: Mention your DOB in YYYY-MM-DD" 
+        class="form-control"> -->
     <div class="alert alert-danger" *ngIf=" dob.touched && !dob.valid">Mention the dob </div>
 
 </div>
