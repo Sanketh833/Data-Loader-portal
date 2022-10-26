@@ -5,9 +5,10 @@ import {Observable} from 'rxjs';
   providedIn: 'root'
 })
 export class uploadcomponentService {
+  flag=false;
     
   // API url
-  baseApiUrl = "http://54.249.155.248:8086/load/upload"
+  baseApiUrl = "http://localhost:8086/load/upload"
     
   constructor(private http:HttpClient) { }
   
@@ -24,4 +25,10 @@ export class uploadcomponentService {
       // with formData as req
       return this.http.post(this.baseApiUrl, formData)
   }
+  
+
+//   isAuthenticated(){
+// this.isLoggedIn=true;
+//     return this.isLoggedIn;
+//   }
 }

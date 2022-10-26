@@ -49,7 +49,14 @@ public class AdminController {
 
 		return ResponseEntity.ok(adminentity);
 	}
-
+	
+	@PostMapping("/log")
+	public void loginAd(@RequestBody AdminEntity adminentity) {
+		adminServiceIntf.loginad(adminentity);
+		
+	}
+	
+	
 	@PostMapping("/login")
 	public ResponseEntity loginAdmin(@RequestBody AdminEntity adminentity) {
 //		 
@@ -67,12 +74,12 @@ public class AdminController {
 		return new ResponseEntity("Entered UserName is wrong",HttpStatus.OK);
 	}
 
-	@GetMapping("/get/{patient_Email}")
-	public Patient collectPatientDetails(@PathVariable("patient_Email") String patient_Email) {
+	@GetMapping("/get/{patient_email}")
+	public Patient collectPatientDetails(@PathVariable("patient_email") String patient_email) {
 
 		String url = "http://localhost:8086/load/retrieve/ ";
 
-		Patient patient = this.restTemplate.getForObject(url + patient_Email, Patient.class);
+		Patient patient = this.restTemplate.getForObject(url + patient_email, Patient.class);
 
 		return patient;
 	}

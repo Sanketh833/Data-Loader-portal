@@ -31,6 +31,7 @@ export class UploadcomponentComponent implements OnInit {
   onUpload() {
     this.loading = !this.loading;
     console.log(this.file);
+    console.log(this.file.name);
     this.uploadcomponentservice.upload(this.file).subscribe(
       (event: any) => {
         if (typeof (event) === 'object') {

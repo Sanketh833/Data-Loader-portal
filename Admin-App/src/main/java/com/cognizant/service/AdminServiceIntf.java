@@ -9,6 +9,8 @@ public interface AdminServiceIntf {
  
 	AdminEntity getAdmindetails(String username);
 
+	void loginad(AdminEntity adminentity);
+
 	 
 	
 	

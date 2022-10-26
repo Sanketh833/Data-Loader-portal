@@ -7,6 +7,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.cognizant.entity.Patient;
@@ -20,7 +21,7 @@ public class CSVService {
 	PatientRepository repository;
 	
 	
-	
+//	@Transactional("rollbackFor = java.sql.SQLException")
 	public void save(  MultipartFile file) { 
 	    try {
 	      List<Patient> patientslist = CSVFileUpload.csvToPatient(file.getInputStream()); 

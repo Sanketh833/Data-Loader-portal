@@ -5,6 +5,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import com.cognizant.entity.Patient;
@@ -23,6 +24,7 @@ public class PatientService implements PatientServiceIntf {
 	}
 
 	@Override
+	@Transactional(rollbackFor = java.sql.SQLException.class)
 	public Patient updatePatient(Patient patient, String patient_email) {
 		Patient existingPatient = patientRepository.getPatientDetails(patient_email);
 
